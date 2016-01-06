@@ -1,0 +1,40 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-10">
+			<div class="panel panel-info">
+		  	<div class="panel-heading">Listing Employees</div>
+		  	<div class="panel-body">
+		  		<table class="table table-bordered", id="myTable">
+		        <thead>
+		          <tr>
+		            <th>Name</th>
+		            <th>D.O.B</th>
+		            <th>Address</th>
+		            <th>Gender</th>
+		            <th>Designation</th>
+		            <th>Department</th>
+		            <th>D.O.J</th>
+		          </tr>
+		        </thead>
+
+		        <tbody>
+		          <% @employees.each do |employee| %>
+		            <tr>
+		              <td><%= employee.name %></td>
+		              <td><%= employee.dob %></td>
+		              <td><%= employee.address%></td>
+		              <td><%= employee.gender%></td>
+		              <td><%= employee.designation.name%></td>
+		              <td><%= employee.department.name%></td>
+		              <td><%= employee.date_of_joining %></td>
+		             </tr>
+		          <% end %>
+		        </tbody>
+		      </table>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>

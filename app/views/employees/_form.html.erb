@@ -1,0 +1,77 @@
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_exemployeeation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :Name %>
+      <%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "Enter Name", required: true %>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :Address %>
+      <%= f.text_area :address, class: "form-control",placeholder: "Enter Address", required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :Date_Of_Birth %>
+      <%= f.text_field :dob, class: "form-control",placeholder: "Enter Date Of Birth", required: true, id:"datepicker" %>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :Date_of_Joining %>
+      <%= f.text_field :date_of_joining, class: "form-control",placeholder: "Enter Date Of joining", required: true, id:"datepicker2" %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+     <%= f.label :Designation %>
+      <%= f.select :designation_id, Designation.all.map { |u| [u.name, u.id] },
+                                            { include_blank: true },
+                                            { class: "chosen-select" }%>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :Department %>
+      <%= f.select :department_id, Department.all.map { |u| [u.name, u.id] },
+                                            { include_blank: true },
+                                            { class: "chosen-select" }%>
+      
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :Gender %>
+      <%= f.select :gender, options_for_select(["Male", "Female"]),
+                          { include_blank: true },
+                          { class: "chosen-select" }%> 
+    </div>
+    <div class="col-md-6">
+      <%= f.label :country %>
+      <%= f.select :country, Country.all.map { |u| [u.name, u.id] },
+                                            { include_blank: true },
+                                            { id: "country" }%> 
+    </div>
+    
+    <div class="col-md-6">
+      <%= f.label :state %>
+      <%= f.select :state, State.all.map { |u| [u.name, u.id] },
+                                            { include_blank: true },
+                                            { id: "state" }%> 
+    </div>
+  </div>
+  
+  <br/>
+  <br/>
+  <%= f.submit class:"btn btn-info btn-fixi" %>
+<%end%>

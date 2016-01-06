@@ -1,0 +1,75 @@
+<!--
+<script type="text/javascript">
+    function myFunctionstart(){
+    var basic =document.getElementById("basic").value;
+    var da =document.getElementById("da").value;
+    var hra =document.getElementById("hra").value;
+    var others =document.getElementById("others").value;
+    var sa =document.getElementById("sa").value;
+    var ca =document.getElementById("conveyance").value;
+    var gross=Number(basic)+Number(da)+Number(hra)+Number(others)+Number(sa)+Number(ca);
+    var gratuity =document.getElementById("gratuity").value;
+    var da_basic=Number(basic)+Number(da);
+    var emppf = (da_basic*4.75)/100;
+    var pf = (da_basic*12)/100;
+    var ctc = emppf+Number(gratuity)+gross;
+    var pt = 0;
+    var gt=0;
+    if (gross > 15000) {
+    pt=200;
+    gt=200;
+    } else {
+    pt=100;
+    gt=100;
+    }
+
+    $("#gross").val(gross);
+    $("#emppf").val(emppf);
+    $("#monthly_ctc").val(ctc);
+    $("#gratuity").val(gt);
+    $("#pf").val(pf);
+    $("#pt").val(pt);
+   
+
+    }
+</script>
+ !-->
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">  
+      <%= f.label :Gross_Salary %><br>
+      <%= f.number_field :gross, class: "form-control", placeholder: "Enter Special Allowances", id:"gross" %>
+    </div>
+  </div>
+  <br/>
+  <div class="row">  
+    <div class="col-md-6">
+      <%= f.label :Emproyer_Provident_Fund_Contribution %><br>
+      <%= f.number_field :emp_pf, class: "form-control", placeholder: "Employer PF Contribution",id:"emppf" %>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :Gratuity %><br>
+      <%= f.number_field :gratuity, class: "form-control", placeholder: "Gtatuity",id:"gratuity"  %>
+    </div>
+  </div>
+ 
+  <br/>
+  <div class="row">  
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <%= f.label :Monthly_CTC %><br>
+      <%= f.number_field :monthly_ctc, class: "form-control", placeholder: "Monthly CTC" , id:"monthly_ctc" %>
+    </div>
+  </div>
+  <br/>
+  <div class="row">  
+    <div class="col-md-6">
+      <%= f.label :Provident_fund %><br>
+      <%= f.number_field :pf, class: "form-control", placeholder: "Provident Fund", id:"pf" %>
+    </div>
+
+    <div class="col-md-6">
+      <%= f.label :Proffesional_Tax %><br>
+      <%= f.number_field :pt, class: "form-control", placeholder: "Proffesional Tax", id:"pt" %>
+    </div>
+  </div>
