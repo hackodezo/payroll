@@ -1,7 +1,7 @@
 <%= form_for(@employee_salary) do |f| %>
   <% if @employee_salary.errors.any? %>
     <div id="error_exemployeeation">
-      <h2><%= pluralize(@employee_salary.errors.count, "error") %> prohibited this employeev Salary from being saved:</h2>
+      <h2><%= pluralize(@employee_salary.errors.count, "error") %> prohibited this employee Salary from being saved:</h2>
 
       <ul>
       <% @employee_salary.errors.full_messages.each do |message| %>

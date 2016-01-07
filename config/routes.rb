@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   resources :salary_structures
    resources :employees
    resources :departments

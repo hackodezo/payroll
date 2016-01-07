@@ -38,3 +38,4 @@ jQuery(function($){
 jQuery(function($){
     $('#state').chosen();
 });
+

@@ -1,6 +1,27 @@
+<script type="text/javascript">
+  
+
+function myFunctionstart() {
+  country_id = document.getElementById('country').value;
+  var state_id = document.getElementById('state');
+  console.log(country_id);
+  <%@count = 0 -%>
+  <% for state in @states -%>
+    statee = <%= state.country_id %>
+    if (statee != country_id){
+
+      state_id.remove(state_id);
+      
+    }
+    
+  <% end -%>
+  
+  };
+
+</script>
 <%= form_for(@employee) do |f| %>
   <% if @employee.errors.any? %>
-    <div id="error_exemployeeation">
+    <div id="error">
       <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
       <ul>
@@ -60,7 +81,7 @@
       <%= f.label :country %>
       <%= f.select :country, Country.all.map { |u| [u.name, u.id] },
                                             { include_blank: true },
-                                            { id: "country" }%> 
+                                            { id: "country", onchange:"myFunctionstart(this)" }%> 
     </div>
     
     <div class="col-md-6">

@@ -22,13 +22,13 @@
 		        <tbody>
 		          <% @employee_salaries.each do |employee| %>
 		            <tr>
-		              <td><%= employee.employee.name%></td>
+		              <td><%=link_to employee.employee.name , employee_salary_path(employee)%></td>
 		              <td><%= employee.salary_date %></td>
 		              <td><%= employee.salary_structure.basic%></td>
 		              <td><%= employee.salary_structure.da%></td>
 		              <td><%= employee.salary_structure.hra%></td>
 		              <td><%= employee.salary_structure.gross%></td>
-		              <td><%= employee.salary_structure.montly_ctc%></td>
+		              <td><%= employee.salary_structure.monthly_ctc%></td>
 		             </tr>
 		          <% end %>
 		        </tbody>

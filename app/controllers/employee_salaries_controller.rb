@@ -10,6 +10,7 @@ class EmployeeSalariesController < ApplicationController
 
   def new
     @employee_salary = EmployeeSalary.new
+    @states=State.all
   end
 
   def edit
@@ -19,6 +20,7 @@ class EmployeeSalariesController < ApplicationController
     @employee_salary = EmployeeSalary.new(employee_salary_params)
 
     respond_to do |format|
+
       if @employee_salary.save
         format.html { redirect_to employee_salary_path(@employee_salary), notice: 'Employee Salary was successfully created.' }
       else

@@ -6,7 +6,14 @@ class EmployeesController < ApplicationController
 
 	def new
 		@employee=Employee.new
+    @states=State.all
 	end
+
+  def show
+    @employee=Employee.find(params[:id])
+    @employee_salaries=@employee.employee_salaries
+  end
+
 
 	def create
     @employee = Employee.new(employee_params)
