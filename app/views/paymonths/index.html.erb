@@ -1,0 +1,49 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">Add Pay Month</div>
+        <div class="panel-body">
+          <%=render 'form'%>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Listing Employees</div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <th>Month year</th>
+                <th>Day count</th>
+                <th>Month name</th>
+                <th>Pay month</th>
+                <th >Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @paymonths.each do |paymonth| %>
+                <tr>
+                  <td><%= paymonth.month_year %></td>
+                  <td><%= paymonth.day_count %></td>
+                  <td><%= paymonth.month_name %></td>
+                  <td><%= paymonth.pay_month %></td>
+                  <td><%= link_to 'Destroy', paymonth, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Settings', paymonth_paymonth_leaves_path(paymonth) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+

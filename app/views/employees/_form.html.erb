@@ -1,22 +1,4 @@
-<script type="text/javascript">
-  
 
-function myFunctionstart() {
-  country_id = document.getElementById('country').value;
-  var state_id = document.getElementById('state');
-  console.log(country_id);
-  <%@count = 0 -%>
-  <% for state in @states -%>
-    statee = <%= state.country_id %>
-    if (statee != country_id){
-
-      state_id.remove(state_id);
-      
-    }
-    
-  <% end -%>
-  
-  };
 
 </script>
 <%= form_for(@employee) do |f| %>
@@ -35,22 +17,22 @@ function myFunctionstart() {
   <div class="row">
     <div class="col-md-6">
       <%= f.label :Name %>
-      <%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "Enter Name", required: true %>
+      <%= f.text_field :name, class: "form-control", autofocus: true, placeholder: "Enter Name"%>
     </div>
     <div class="col-md-6">
       <%= f.label :Address %>
-      <%= f.text_area :address, class: "form-control",placeholder: "Enter Address", required: true %>
+      <%= f.text_area :address, class: "form-control",placeholder: "Enter Address"%>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-6">
       <%= f.label :Date_Of_Birth %>
-      <%= f.text_field :dob, class: "form-control",placeholder: "Enter Date Of Birth", required: true, id:"datepicker" %>
+      <%= f.text_field :dob, class: "form-control",placeholder: "Enter Date Of Birth", id:"datepicker" %>
     </div>
     <div class="col-md-6">
       <%= f.label :Date_of_Joining %>
-      <%= f.text_field :date_of_joining, class: "form-control",placeholder: "Enter Date Of joining", required: true, id:"datepicker2" %>
+      <%= f.text_field :date_of_joining, class: "form-control",placeholder: "Enter Date Of joining", id:"datepicker2" %>
     </div>
   </div>
   
@@ -77,18 +59,20 @@ function myFunctionstart() {
                           { include_blank: true },
                           { class: "chosen-select" }%> 
     </div>
-    <div class="col-md-6">
-      <%= f.label :country %>
-      <%= f.select :country, Country.all.map { |u| [u.name, u.id] },
-                                            { include_blank: true },
-                                            { id: "country", onchange:"myFunctionstart(this)" }%> 
-    </div>
+    
     
     <div class="col-md-6">
       <%= f.label :state %>
       <%= f.select :state, State.all.map { |u| [u.name, u.id] },
                                             { include_blank: true },
                                             { id: "state" }%> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <%= f.label :Date_of_Salary %>
+        <%= f.text_field :salary_date, class: "form-control",placeholder: "Enter Salary Date", id:"datepicker1" %>
     </div>
   </div>
   

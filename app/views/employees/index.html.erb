@@ -10,12 +10,13 @@
 		        <thead>
 		          <tr>
 		            <th>Name</th>
-		            <th>D.O.B</th>
-		            <th>Address</th>
 		            <th>Gender</th>
 		            <th>Designation</th>
 		            <th>Department</th>
 		            <th>D.O.J</th>
+		            <th>Salary Date</th>
+		            <th>Actions</th>
+
 		          </tr>
 		        </thead>
 
@@ -23,12 +24,14 @@
 		          <% @employees.each do |employee| %>
 		            <tr>
 		              <td><%=link_to employee.name, employee_path(employee) %></td>
-		              <td><%= employee.dob %></td>
-		              <td><%= employee.address%></td>
 		              <td><%= employee.gender%></td>
 		              <td><%= employee.designation.name%></td>
 		              <td><%= employee.department.name%></td>
-		              <td><%= employee.date_of_joining %></td>
+		              <td><%= employee.date_of_joining.strftime("%d %b %y") %></td>
+		              <td><%= employee.salary_date.strftime("%d %b %y") %></td>
+		              <td><%= link_to 'Show', employee_path(employee) %>
+                      <%= link_to 'Edit', edit_employee_path(employee) %>
+                      <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		             </tr>
 		          <% end %>
 		        </tbody>

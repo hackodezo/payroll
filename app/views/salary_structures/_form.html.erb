@@ -14,11 +14,11 @@
   <div class="row">
     <div class="col-md-6">
       <%= f.label :Stucture_Name %><br>
-      <%= f.text_field :name, class: "form-control", placeholder: "Enter Salary Structure Name", required: true, autofocus: true %>
+      <%= f.text_field :name, class: "form-control", placeholder: "Enter Salary Structure Name", autofocus: true %>
     </div>
     <div class="col-md-6">
       <%= f.label :Basic %><br>
-      <%= f.number_field :basic, class: "form-control", placeholder: "Enter Basic Salary", required: true, id:"basic", onmouseout:"myFunctionstart(this)"%>
+      <%= f.number_field :basic, class: "form-control", placeholder: "Enter Basic Salary", id:"basic"%>
     </div>
 
     
@@ -27,11 +27,11 @@
   <div class="row">
     <div class="col-md-6">
       <%= f.label :House_Rent_Allowances %><br>
-      <%= f.number_field :hra, class: "form-control", placeholder: "Enter House Rent Allowance", required: true, id:"hra", onmouseout:"myFunctionstart(this)" %>
+      <%= f.number_field :hra, class: "form-control", placeholder: "Enter House Rent Allowance", id:"hra"%>
     </div>
     <div class="col-md-6">
       <%= f.label :Dearness_Allowances %><br>
-      <%= f.number_field :da, class: "form-control", placeholder: "Enter Dearness Allowances", required: true, id:"da", onmouseout:"myFunctionstart(this)"  %>
+      <%= f.number_field :da, class: "form-control", placeholder: "Enter Dearness Allowances", id:"da"%>
     </div>
     
   </div>
@@ -39,17 +39,17 @@
   <div class="row">
     <div class="col-md-6">
       <%= f.label :Special_Allowance %><br>
-      <%= f.number_field :special_allowance, class: "form-control", placeholder: "Enter Special Allowances", required: true, id:"sa", onmouseout:"myFunctionstart(this)"  %>
+      <%= f.number_field :special_allowance, class: "form-control", placeholder: "Enter Special Allowances", id:"sa"%>
     </div>
     <div class="col-md-6">
       <%= f.label :Others %><br>
-      <%= f.number_field :others, class: "form-control", placeholder: "Enter Other Allowances", required: true, id:"others", onmouseout:"myFunctionstart(this)"  %>
+      <%= f.number_field :others, class: "form-control", placeholder: "Enter Other Allowances", id:"others"%>
     </div>
   </div>
    <div class="row">  
     <div class="col-md-6">
       <%= f.label :Conveyance %><br>
-      <%= f.number_field :conveyance, class: "form-control", placeholder: "Conveyance", id:"conveyance", onmouseout:"myFunctionstart(this)"  %>
+      <%= f.number_field :conveyance, class: "form-control", placeholder: "Conveyance", id:"conveyance"%>
     </div>
   </div>
   <br/>

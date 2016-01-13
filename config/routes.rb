@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  
+  resources :leave_heads
+  resources :paymonths do 
+    resources :paymonth_leaves
+  end
   resources :salary_structures
    resources :employees
    resources :departments

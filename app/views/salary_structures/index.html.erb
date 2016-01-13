@@ -8,6 +8,7 @@
           <table class="table table-bordered", id="myTable">
             <thead>
               <tr>
+                <th>Name</th>
                 <th>Basic</th>
                 <th>Da</th>
                 <th>Hra</th>
@@ -22,6 +23,7 @@
             <tbody>
               <% @salary_structures.each do |salary_structure| %>
                 <tr>
+                  <td><%= salary_structure.name %></td>
                   <td><%= salary_structure.basic %></td>
                   <td><%= salary_structure.da %></td>
                   <td><%= salary_structure.hra %></td>

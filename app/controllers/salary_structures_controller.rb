@@ -3,6 +3,7 @@ class SalaryStructuresController < ApplicationController
 
   def index
     @salary_structures = SalaryStructure.all
+    binding.pry
   end
 
   def show
@@ -17,7 +18,7 @@ class SalaryStructuresController < ApplicationController
 
   def create
     @salary_structure = SalaryStructure.new(salary_structure_params)
-    SalaryStructure.calculate(@salary_structure)
+    
     respond_to do |format|
       if @salary_structure.save
         format.html { redirect_to salary_structures_path, notice: 'Salary structure was successfully created.' }

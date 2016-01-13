@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160107042700) do
+ActiveRecord::Schema.define(version: 20160113104959) do
 
   create_table "addresses", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -63,7 +63,30 @@ ActiveRecord::Schema.define(version: 20160107042700) do
     t.integer  "department_id"
     t.integer  "designation_id"
     t.string   "state"
-    t.string   "country"
+    t.date     "salary_date"
+  end
+
+  create_table "leave_heads", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "paymonth_leaves", force: :cascade do |t|
+    t.integer  "leave_id"
+    t.integer  "paymonth_id"
+    t.integer  "value"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "paymonths", force: :cascade do |t|
+    t.integer  "month_year"
+    t.integer  "day_count"
+    t.string   "month_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date     "pay_month"
   end
 
   create_table "salary_structures", force: :cascade do |t|
