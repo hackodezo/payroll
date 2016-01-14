@@ -1,11 +1,12 @@
 class Employee < ActiveRecord::Base
+	has_many :allot_leaves
 	belongs_to :department
 	belongs_to :designation
 	has_many :employee_salaries
 	validates_format_of :name, :with => /\A[^0-9`!@#\$%\^&*+_=]+\z/
 	validates_format_of :address, :with => /\A[^`!@#\$%\^&*+_=]+\z/
-	validates_presence_of :name,:dob,:address,:date_of_joining,:designation_id,:department_id,:gender,:state
-	validate :validate_birth
+	validates_presence_of :name,:dob,:address,:designation_id,:department_id,:gender,:state
+	validate :validate_birth, if: :date_of_joining?
 
 	def validate_birth
 		if  !(self.date_of_joining.nil?)

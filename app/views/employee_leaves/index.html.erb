@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Listing Employees</div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <%@paymonth_leaves.each do |paymonth_leave|%>
+                <th><%=paymonth_leave.leave_head.name%></th>
+                <%end%>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @employee_leaves.each do |employee_leafe| %>
+                <tr>
+                  <% employee_leafe.head_values.delete("^0-9,").split(",").each do |head|%>
+                    <td><%=head%></td>
+                  <%end%>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>

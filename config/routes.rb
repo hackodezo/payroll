@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   
+  resources :allot_leaves do
+    resources :employee_leaves
+  end
   resources :leave_heads
   resources :paymonths do 
     resources :paymonth_leaves

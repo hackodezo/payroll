@@ -1,0 +1,26 @@
+<%= form_for([@allot_leafe, @employee_leafe]) do |f| %>
+  <% if @employee_leafe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee_leafe.errors.count, "error") %> prohibited this employee_leafe from being saved:</h2>
+
+      <ul>
+      <% @employee_leafe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%@paymonth_leaves.each do |paymonth_leave|%>
+  <div class="field">
+    <label><%=paymonth_leave.leave_head.name%></label>
+    <%= f.number_field :head_values, class: "form-control", placeholder: "Enter Basic Salary", multiple: true %> 
+  </div>
+
+  <%= f.hidden_field :allot_leave_id, value: @allot_leafe.id%>
+  <%end%>
+
+  
+    <%= f.submit class:"btn btn-primary"%>
+  </div>
+<% end %>

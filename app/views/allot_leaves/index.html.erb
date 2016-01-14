@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <div class="panel panel-info">
+        <div class="panel-heading">Listing Employees</div>
+        <div class="panel-body">
+          <table class="table table-bordered", id="myTable">
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Paymonth</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @allot_leaves.each do |allot_leafe| %>
+                <tr>
+                  <td><%= link_to allot_leafe.employee.name , allot_leafe_employee_leaves_path(allot_leafe)%></td>
+                  <td><%= allot_leafe.paymonth.pay_month.strftime("%b %y") %></td>
+                  <td><%= link_to 'Show', allot_leafe %>
+                  <%= link_to 'Edit', edit_allot_leafe_path(allot_leafe) %>
+                  <%= link_to 'Destroy', allot_leafe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

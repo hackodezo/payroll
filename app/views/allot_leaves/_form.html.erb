@@ -1,0 +1,39 @@
+<%= form_for(@allot_leafe) do |f| %>
+  <% if @allot_leafe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@allot_leafe.errors.count, "error") %> prohibited this allot_leafe from being saved:</h2>
+
+      <ul>
+      <% @allot_leafe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="field">
+        <%= f.label :employee_id %><br>
+        <%=f.select :employee_id, Employee.all.map { |u| [u.name, u.id] },
+                                                { include_blank: true },
+                                                { class: "chosen-select" }%>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="field">
+        <%= f.label :paymonth_id %><br>
+        <%= f.select :paymonth_id, Paymonth.all.map { |u| [u.pay_month.strftime("%b %y"), u.id] },
+                                                { include_blank: true },
+                                                { class: "chosen-select" } %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-4">
+      <div class="actions">
+        <%= f.submit class:"btn btn-primary"%>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,4 +1,4 @@
-<%= form_for(@paymonth_leafe) do |f| %>
+<%= form_for([@paymonth, @paymonth_leafe]) do |f| %>
   <% if @paymonth_leafe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@paymonth_leafe.errors.count, "error") %> prohibited this paymonth_leafe from being saved:</h2>
@@ -13,10 +13,9 @@
 
   <div class="field">
     <%= f.label :leave_id %><br>
-    <%= f.number_field :leave_id ,LeaveHead.all.map { |u| [u.name, u.id] },
+    <%= f.select :leave_head_id, LeaveHead.all.map { |u| [u.name, u.id] },
                                             { include_blank: true },
                                             { class: "chosen-select" }%>
-  </div>
   </div>
   <div class="actions">
     <%= f.submit class:"btn btn-primary"%>

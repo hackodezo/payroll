@@ -7,9 +7,9 @@
         <div class="panel-heading">
           <div class="row">
             <div class="col-md-6">
-              <h4>Listing Employees</h4>
+              <h4>Listing Leave Heads</h4>
             </div>
-            <div class="dol-md-6"><h4 style="text-align:right"><%=link_to "Add Leave Heads" , new_paymonth_paymonth_leafe_path%></h4>
+            <div class="dol-md-6"><h4 style="text-align:right"><%=link_to "Add Leave Heads" , new_paymonth_paymonth_leafe_path()%></h4>
             </div>
           </div>
         </div>
@@ -17,22 +17,17 @@
           <table class="table table-bordered", id="myTable">
             <thead>
               <tr>
-                <th>Leave</th>
-                <th>Paymonth</th>
-                <th>Value</th>
-                <th colspan="3"></th>
+                <th>Leave Head</th>
+                <th>Action</th>
               </tr>
             </thead>
 
             <tbody>
               <% @paymonth_leaves.each do |paymonth_leafe| %>
                 <tr>
-                  <td><%= paymonth_leafe.leave_id %></td>
-                  <td><%= paymonth_leafe.paymonth_id %></td>
-                  <td><%= paymonth_leafe.value %></td>
-                  <td><%= link_to 'Show', paymonth_leafe %></td>
-                  <td><%= link_to 'Edit', edit_paymonth_leafe_path(paymonth_leafe) %></td>
-                  <td><%= link_to 'Destroy', paymonth_leafe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%=paymonth_leafe.leave_head.name %></td>
+                  <td><%= link_to "Delete" ,edit_paymonth_paymonth_leafe_path(paymonth_leafe.paymonth,paymonth_leafe)%></td>
+                  
                 </tr>
               <% end %>
             </tbody>

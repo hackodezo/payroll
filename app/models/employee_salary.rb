@@ -2,11 +2,11 @@ class EmployeeSalary < ActiveRecord::Base
 
 	belongs_to :employee
 	belongs_to :salary_structure
-	validates_presence_of :salary_date,:salary_structure_id,:employee_id
-	validate :salaryi_date
+	validates_presence_of :salary_structure_id,:employee_id
+	validate :salary_date, if: :salary_date?
 	
 
-	def salaryi_date
+	def salary_date
 		if !self.employee_id.nil? && !self.salary_date.nil? && !self.salary_structure_id.nil?
 			@employee= Employee.where("id =?",self.employee_id).first
 			if (self.salary_date < @employee.date_of_joining)

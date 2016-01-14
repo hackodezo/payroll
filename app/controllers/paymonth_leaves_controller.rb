@@ -4,7 +4,8 @@ class PaymonthLeavesController < ApplicationController
   # GET /paymonth_leaves
   # GET /paymonth_leaves.json
   def index
-    @paymonth_leaves = PaymonthLeave.all
+    @paymonth = Paymonth.find(params[:paymonth_id])
+    @paymonth_leaves = PaymonthLeave.where("paymonth_id = ?", @paymonth)
   end
 
   # GET /paymonth_leaves/1
@@ -14,21 +15,25 @@ class PaymonthLeavesController < ApplicationController
 
   # GET /paymonth_leaves/new
   def new
+    @paymonth = Paymonth.find(params[:paymonth_id])
     @paymonth_leafe = PaymonthLeave.new
   end
 
   # GET /paymonth_leaves/1/edit
   def edit
+    @paymonth = Paymonth.find(params[:paymonth_id])
+    @paymonth_leafe = PaymonthLeave.find(params[:id])
   end
 
   # POST /paymonth_leaves
   # POST /paymonth_leaves.json
   def create
     @paymonth_leafe = PaymonthLeave.new(paymonth_leafe_params)
-
+    @paymonth = Paymonth.find(params[:paymonth_id])
+    @paymonth_leafe.paymonth_id = @paymonth.id
     respond_to do |format|
       if @paymonth_leafe.save
-        format.html { redirect_to @paymonth_leafe, notice: 'Paymonth leave was successfully created.' }
+        format.html { redirect_to paymonth_paymonth_leaves_path, notice: 'Paymonth leave was successfully created.' }
         format.json { render :show, status: :created, location: @paymonth_leafe }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class PaymonthLeavesController < ApplicationController
   def update
     respond_to do |format|
       if @paymonth_leafe.update(paymonth_leafe_params)
-        format.html { redirect_to @paymonth_leafe, notice: 'Paymonth leave was successfully updated.' }
+        format.html { redirect_to paymonth_paymonth_leaves_path, notice: 'Paymonth leave was successfully updated.' }
         format.json { render :show, status: :ok, location: @paymonth_leafe }
       else
         format.html { render :edit }
@@ -69,6 +74,6 @@ class PaymonthLeavesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paymonth_leafe_params
-      params.require(:paymonth_leafe).permit(:leave_id, :paymonth_id, :value)
+      params.require(:paymonth_leave).permit(:leave_head_id, :paymonth_id , :value)
     end
 end

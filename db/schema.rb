@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113104959) do
+ActiveRecord::Schema.define(version: 20160114090906) do
 
   create_table "addresses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "country_id"
     t.integer  "state_id"
+  end
+
+  create_table "allot_leaves", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.integer  "paymonth_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "counties", force: :cascade do |t|
@@ -44,6 +51,9 @@ ActiveRecord::Schema.define(version: 20160113104959) do
     t.datetime "updated_at", null: false
   end
 
+# Could not dump table "employee_leaves" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
   create_table "employee_salaries", force: :cascade do |t|
     t.date     "salary_date"
     t.integer  "employee_id"
@@ -68,16 +78,18 @@ ActiveRecord::Schema.define(version: 20160113104959) do
 
   create_table "leave_heads", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "leave_head_id"
   end
 
   create_table "paymonth_leaves", force: :cascade do |t|
     t.integer  "leave_id"
     t.integer  "paymonth_id"
     t.integer  "value"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "leave_head_id"
   end
 
   create_table "paymonths", force: :cascade do |t|
